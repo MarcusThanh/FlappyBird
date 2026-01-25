@@ -23,6 +23,7 @@ public class Player : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        _isDead = false;
         Debug.Log("Hello World");
     }
 
@@ -45,12 +46,19 @@ public class Player : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
+
+
+
         Debug.Log("Collide " + collision.gameObject.name);
 
         if(collision.gameObject.CompareTag("Coin"))
         {
-            _score++;
             Debug.Log("Score increased");
         }
+    }
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log("Collide " + collision.gameObject.name);
+
     }
 }
