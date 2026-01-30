@@ -46,9 +46,6 @@ public class Player : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
-
-
-
         Debug.Log("Collide " + collision.gameObject.name);
 
         if(collision.gameObject.CompareTag("Coin"))

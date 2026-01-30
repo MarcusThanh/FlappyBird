@@ -105,7 +105,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a6545043b95e03408eb7536ee1cbe79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NewMonoBehaviourScript
-  _flyPower: 100
+  _flyPower: 5
+  _score: 0
 --- !u!50 &615778793767368097
 Rigidbody2D:
   serializedVersion: 5
