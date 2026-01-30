@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.SocialPlatforms.Impl;
 public class Player : MonoBehaviour
 {
+    GameManager gameManager = GameManager.getGameMananger();
 
 
     [SerializeField] private float _flyPower = 1.0f;
@@ -17,25 +18,25 @@ public class Player : MonoBehaviour
     private HashSet<string> _setCollide;
     void Awake()
     {
+
         rb = GetComponent<Rigidbody2D>();
         
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+
         _isDead = false;
+
+
         Debug.Log("Hello World");
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(_isDead)
-        {
-            return;
-        }
 
-        if(Keyboard.current.spaceKey.wasPressedThisFrame)
+        if(Keyboard.current.spaceKey.wasPressedThisFrame && _isDead == false)
         {
 
             rb.linearVelocityY = 0;
@@ -46,6 +47,7 @@ public class Player : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
+
         Debug.Log("Collide " + collision.gameObject.name);
 
         if(collision.gameObject.CompareTag("Coin"))
@@ -55,7 +57,14 @@ public class Player : MonoBehaviour
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("Collide " + collision.gameObject.name);
 
+        if(collision.gameObject.CompareTag("Pipe"))
+        {
+            _isDead = true;
+
+            gameManager.UpdateGameState(GameState.PlayerDie);
+            Debug.Log("Player die upon hitting " + collision.gameObject.name);
+
+        }
     }
 }
