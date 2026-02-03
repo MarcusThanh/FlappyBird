@@ -12,7 +12,6 @@ public class PillarSpawner : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-
         if (timer >= spawnRate)
         {
             SpawnPipe();

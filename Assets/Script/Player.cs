@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     GameManager gameManager = GameManager.getGameMananger();
 
 
-    [SerializeField] private float _flyPower = 1.0f;
+    [SerializeField] private float _flyPower = 0.8f;
     Rigidbody2D rb;
     BoxCollider2D bc;
     [SerializeField] private int _score = 0;
