@@ -8,9 +8,10 @@ public class GameManager : MonoBehaviour
     public static event Action<GameState> OnGameStateChanged; 
     public GameState State;
     protected GameManager(){}
-    
-    
 
+
+
+    public GameOverUI gameOverUI ;
     public static GameManager getGameMananger()
     {
         if (_instance == null)
@@ -25,7 +26,9 @@ public class GameManager : MonoBehaviour
     }
     void Awake()
     {
+
         _instance = new GameManager();
+        DontDestroyOnLoad(gameObject);
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -60,7 +63,7 @@ public class GameManager : MonoBehaviour
     }
     private static void HandlePlayerDie()
     {
-        Debug.Log("Player Die from game manager");
+        Time.timeScale = 0;
     }
 
 }
