@@ -27,9 +27,6 @@ public class Player : MonoBehaviour
     {
 
         _isDead = false;
-
-
-        Debug.Log("Hello World");
     }
 
     // Update is called once per frame
@@ -67,4 +64,5 @@ public class Player : MonoBehaviour
 
         }
     }
+
 }
